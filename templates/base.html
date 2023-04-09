@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}{% endblock %}</title>
+        <script src="{{ url_for('static', filename='js/jquery-2.0.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/ui.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/responsive.css') }}">
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    
+    </head> 
+    <body>
+            {% block content %}
+            {% endblock %}
+    </body>
+    
+    </html>
+    
+

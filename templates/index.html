@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Subscription{% endblock %}
+{% block content %}
+    <section class="section-conten padding-y" style="min-height:84vh">
+        <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Subscription!!!</h4>
+                <form method="POST">
+                    <p>{{error}}</p>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="">Email</label>
+                            <input type="email" name="email" id="email" class="form-control">
+                        </div>
+                    </div>
+                    <p>Or</p>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="">Phone Number</label>
+                            <input type="text" name="phonenumber" id="phonenumber" class="form-control" pattern="[0-9]{10}">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label for="">Stock Ticker</label>
+                            <input type="text" name="stock_ticker" id="stock_ticker" class="form-control">
+                        </div>
+                        <div class="col form-group">
+                            <label for="">Price Threshold</label>
+                            <input type="text" name="price_threshold" id="price_threshold" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <p>Notification Type</p>
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" id="mail" checked="" type="radio" name="ntype" value="mail">
+					  <span class="custom-control-label"> Email </span>
+					</label>
+					<label class="custom-control custom-radio custom-control-inline">
+					  <input class="custom-control-input" id="sms" type="radio" name="ntype" value="sms">
+					  <span class="custom-control-label"> SMS </span>
+					</label>
+				</div>
+				<div class="form-group">
+					<div class="form-group">
+					  <label>Notification Frequency</label>
+					  <select id="freq" name="freq" class="form-control">
+					      <option value="EH">Every Hour</option>
+					      <option value="ED" selected="">Daily</option>	    
+					  </select>
+					</div>
+				</div>	
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <button type="submit" class="btn btn-primary btn-block"> Submit </button> 
+                        </div>
+                    </div>
+               </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
