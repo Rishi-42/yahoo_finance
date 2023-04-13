@@ -1,9 +1,9 @@
 from models import db, Subscription
 import yfinance as yf
-import smtplib
+import smtplib, os
 from twilio.rest import Client
 from datetime import date
-import environ
+from dotenv import load_dotenv
 
 
 
@@ -55,8 +55,8 @@ def check_prices(app):
            
 # define the functions to send email and text notifications
 def send_email(to, message):
-    from_email = env('mail_address')
-    password = env('password')
+    from_email = os.environ.get('mail_address')
+    password = os.environ.get('password')
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.ehlo()
         smtp.starttls()
@@ -72,8 +72,8 @@ def send_text(to, message):
         and the message need to be send. 
         The from is the trial phone number provided by the Twilio api.
     '''
-    account_sid = env('account_sid')  # Sid Provided by API
-    auth_token  = env('auth_token')  #provided by api
+    account_sid = os.environ.get('account_sid')  # Sid Provided by API
+    auth_token  = os.environ.get('auth_token')  #provided by api
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         to=f"+977{to}",
