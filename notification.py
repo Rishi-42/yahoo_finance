@@ -7,10 +7,6 @@ from dotenv import load_dotenv
 
 
 
-env = environ.Env()
-#read.env file
-environ.Env.read_env()
-
 def check_prices(app):
   with app.app_context():  
     subscriptions = Subscription.query.all()
